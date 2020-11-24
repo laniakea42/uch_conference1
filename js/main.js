@@ -92,6 +92,13 @@ $(window).on('scroll', function() {
         ]
 
     });
+
+        if (window.innerWidth <= 780) {
+            $('.nav a').on('click', function() {
+                $('header .nav').slideUp();
+                $('.nav--btn').removeClass('open');
+            });
+        }
     $('.open--modal').on('click', function(){
         var modal = $(this).attr('data-modal');
         $(modal).fadeIn();
@@ -106,11 +113,9 @@ $(window).on('scroll', function() {
         if ($('header .nav').is(':visible')) {
             $('header .nav').slideUp();
             $(this).removeClass('open');
-            $('body').css({'overflow': 'visible'});
         } else {
             $('header .nav').slideDown();
             $(this).addClass('open');
-            $('body').css({'overflow': 'hidden'});
         }
 
         return false;
